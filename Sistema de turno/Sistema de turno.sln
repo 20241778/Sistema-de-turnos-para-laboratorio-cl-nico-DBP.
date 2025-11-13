@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36603.0 d17.14
+VisualStudioVersion = 17.14.36603.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sistema de turno", "Sistema de turno\Sistema de turno.csproj", "{C247992D-102E-40B4-B833-D96FB3A51F93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabClinic.Domain", "proyecto.dominio\LabClinic.Domain.csproj", "{0B797C4D-DABF-46B3-966F-13365E6AEEBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabClinic.Infrastructure", "infraestructura\LabClinic.Infrastructure.csproj", "{AD76AE29-8293-4934-A960-4FCED73E61FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{C247992D-102E-40B4-B833-D96FB3A51F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C247992D-102E-40B4-B833-D96FB3A51F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C247992D-102E-40B4-B833-D96FB3A51F93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B797C4D-DABF-46B3-966F-13365E6AEEBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B797C4D-DABF-46B3-966F-13365E6AEEBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B797C4D-DABF-46B3-966F-13365E6AEEBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B797C4D-DABF-46B3-966F-13365E6AEEBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD76AE29-8293-4934-A960-4FCED73E61FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD76AE29-8293-4934-A960-4FCED73E61FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD76AE29-8293-4934-A960-4FCED73E61FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD76AE29-8293-4934-A960-4FCED73E61FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
