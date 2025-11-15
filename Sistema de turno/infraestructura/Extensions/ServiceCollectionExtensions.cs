@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LabClinic.Domain
+namespace LabClinic.Infrastructure.Extensions
 {
-    internal class BaseEntity
+    internal class ServiceCollectionExtensions
     {
     }
 }

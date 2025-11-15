@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LabClinic.Infrastructure
+namespace LabClinic.Infrastructure.Repositories
 {
-    internal class LabClinicContext
+    internal class ICitaRepository
     {
     }
 }
