@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LabClinic.Domain.Entities;
+using LabClinic.Domain.Repository;
 
-namespace LabClinic.Infrastructure.Repositories
+
+namespace LabClinic.Infrastructure.Interfaces
 {
-    internal class IPruebaRepository
+    public interface IPruebaRepository : IRepository<Prueba>
     {
+        Task<Prueba?> GetByCodigoAsync(string codigo);
     }
 }

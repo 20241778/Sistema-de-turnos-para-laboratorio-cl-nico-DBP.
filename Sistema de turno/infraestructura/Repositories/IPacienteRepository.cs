@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LabClinic.Domain.Entities;
+using LabClinic.Domain.Repository;
 
-namespace LabClinic.Infrastructure.Repositories
+
+namespace LabClinic.Infrastructure.Interfaces
 {
-    internal class IPacienteRepository
+    public interface IPacienteRepository : IRepository<Paciente>
     {
+        Task<Paciente?> GetByCorreoAsync(string correo);
+        Task<IEnumerable<Paciente>> SearchByNameAsync(string term);
     }
 }

@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LabClinic.Infrastructure.Interfaces;
+
 
 namespace LabClinic.Infrastructure.UnitOfWork
 {
-    internal class IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
+        IPacienteRepository Pacientes { get; }
+        ITecnicoRepository Tecnicos { get; }
+        IPruebaRepository Pruebas { get; }
+        ICitaRepository Citas { get; }
+
+
+        Task<int> CommitAsync();
+        Task BeginTransactionAsync();
+        Task CommitTransactionAsync();
+        Task RollbackTransactionAsync();
     }
 }

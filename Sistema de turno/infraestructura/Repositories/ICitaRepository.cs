@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LabClinic.Domain.Entities;
+using LabClinic.Domain.Repository;
 
-namespace LabClinic.Infrastructure.Repositories
+
+namespace LabClinic.Infrastructure.Interfaces
 {
-    internal class ICitaRepository
+    public interface ICitaRepository : IRepository<Cita>
     {
+        Task<IEnumerable<Cita>> GetByPacienteAsync(Guid pacienteId);
+        Task<IEnumerable<Cita>> GetByTecnicoAndDateRangeAsync(Guid tecnicoId, DateTime from, DateTime to);
+        Task<bool> HasConflictingAppointmentAsync(Guid tecnicoId, DateTime fecha);
     }
 }

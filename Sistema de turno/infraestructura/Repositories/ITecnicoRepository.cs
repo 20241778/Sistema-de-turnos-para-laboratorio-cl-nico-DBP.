@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LabClinic.Domain.Entities;
+using LabClinic.Domain.Repository;
 
-namespace LabClinic.Infrastructure.Repositories
+
+namespace LabClinic.Infrastructure.Interfaces
 {
-    internal class ITecnicoRepository
+    public interface ITecnicoRepository : IRepository<Tecnico>
     {
+        Task<IEnumerable<Tecnico>> GetByEspecialidadAsync(string especialidad);
     }
 }

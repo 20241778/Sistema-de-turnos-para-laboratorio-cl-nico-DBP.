@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabClinic.Domain", "proyect
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabClinic.Infrastructure", "infraestructura\LabClinic.Infrastructure.csproj", "{AD76AE29-8293-4934-A960-4FCED73E61FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabClinic.Applicattion", "LabClinic.Applicattion\LabClinic.Applicattion.csproj", "{8636613D-8BE7-4CB4-ADA4-CCD401D44136}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{AD76AE29-8293-4934-A960-4FCED73E61FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD76AE29-8293-4934-A960-4FCED73E61FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD76AE29-8293-4934-A960-4FCED73E61FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8636613D-8BE7-4CB4-ADA4-CCD401D44136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8636613D-8BE7-4CB4-ADA4-CCD401D44136}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8636613D-8BE7-4CB4-ADA4-CCD401D44136}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8636613D-8BE7-4CB4-ADA4-CCD401D44136}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
