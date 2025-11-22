@@ -9,6 +9,15 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LabClinic.Applicattion\LabClinic.Applicattion.csproj" />
+    <ProjectReference Include="..\infraestructura\LabClinic.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

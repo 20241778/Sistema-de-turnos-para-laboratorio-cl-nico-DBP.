@@ -1,9 +1,9 @@
-﻿
+﻿using LabClinic.Domain.Core;
 using LabClinic.Domain.Entities;
 
 namespace LabClinic.Domain.Entities
 {
-    public class Prueba
+    public class Prueba : BaseEntity
     {
         public string Codigo { get; private set; }
         public string Nombre { get; private set; }
@@ -19,6 +19,10 @@ namespace LabClinic.Domain.Entities
         }
     }
 }
+
+
+
+
 
 
 

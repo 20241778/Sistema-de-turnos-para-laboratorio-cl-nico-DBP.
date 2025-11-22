@@ -3,8 +3,6 @@ using Microsoft.Extensions.DependencyInjection;
 using LabClinic.Infrastructure.Context;
 using LabClinic.Infrastructure.Interfaces;
 using LabClinic.Infrastructure.Repositories;
-using LabClinic.Infrastructure.UnitOfWork;
-
 
 namespace LabClinic.Infrastructure.Extensions
 {
@@ -23,7 +21,7 @@ namespace LabClinic.Infrastructure.Extensions
 
 
             // Unit of Work
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<LabClinic.Infrastructure.UnitOfWork.IUnitOfWork, LabClinic.Infrastructure.UnitOfWork.UnitOfWork>();
 
 
             return services;

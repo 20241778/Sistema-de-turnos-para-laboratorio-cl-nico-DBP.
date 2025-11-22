@@ -1,9 +1,9 @@
-﻿
+﻿using LabClinic.Domain.Core;
 using LabClinic.Domain.Entities;
 
 namespace LabClinic.Domain.Entities
 {
-    public class Paciente 
+    public class Paciente : BaseEntity
     {
         public string Nombre { get; private set; }
         public string Apellido { get; private set; }

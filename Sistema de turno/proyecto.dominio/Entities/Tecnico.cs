@@ -1,8 +1,9 @@
-﻿using LabClinic.Domain.Entities;
+﻿using LabClinic.Domain.Core;
+using LabClinic.Domain.Entities;
 
 namespace LabClinic.Domain.Entities
 {
-    public class Tecnico
+    public class Tecnico : BaseEntity
     {
         public string Nombre { get; private set; }
         public string Especialidad { get; private set; }
@@ -16,6 +17,8 @@ namespace LabClinic.Domain.Entities
         }
     }
 }
+
+
 
 
 

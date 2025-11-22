@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using LabClinic.Application.Interfaces;
-using LabClinic.Application.Mappings;
 using LabClinic.Applicattion.DATA;
 using LabClinic.Applicattion.Interfaces;
+using LabClinic.Infrastructure.UnitOfWork;
+using LabClinic.Domain.Entities;
 
 namespace LabClinic.Application.Services
 {
@@ -23,11 +24,6 @@ namespace LabClinic.Application.Services
             await _uow.Pruebas.AddAsync(entity);
             await _uow.CommitAsync();
             return _mapper.Map<Pruebadata>(entity);
-        }
-
-        public Task<Pruebadata> CreateAsync(CreateUpdatePruebadata dto)
-        {
-            throw new NotImplementedException();
         }
 
         public async Task DeleteAsync(Guid id)
@@ -58,31 +54,12 @@ namespace LabClinic.Application.Services
         public async Task UpdateAsync(Guid id, CreateUpdatePruebadata dto)
         {
             var existing = await _uow.Pruebas.GetByIdAsync(id) ?? throw new KeyNotFoundException("Prueba no encontrada");
-            var updated = _mapper.Map<Prueba>(dto);
-            var idProp = typeof(Domain.Core.BaseEntity).GetProperty("Id\", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
-            idProp!.SetValue(updated, id);
-            _uow.Pruebas.Update(updated);
+
+            // Map properties from DTO to existing entity
+            _mapper.Map(dto, existing);
+
+            _uow.Pruebas.Update(existing);
             await _uow.CommitAsync();
-        }
-
-        public Task UpdateAsync(Guid id, CreateUpdatePruebadata dto)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<IEnumerable<Pruebadata>> IPruebaService.GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Pruebadata?> IPruebaService.GetByCodigoAsync(string codigo)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Pruebadata?> IPruebaService.GetByIdAsync(Guid id)
-        {
-            throw new NotImplementedException();
         }
     }
 }
