@@ -7,13 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="12.0.1" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\LabClinic.Applicattion\LabClinic.Applicattion.csproj" />
     <ProjectReference Include="..\proyecto.dominio\LabClinic.Domain.csproj" />
-    <ProjectReference Include="..\infraestructura\LabClinic.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
