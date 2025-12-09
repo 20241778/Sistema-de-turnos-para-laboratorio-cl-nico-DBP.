@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using LabClinic.Application.Interfaces;
 using LabClinic.Domain.Entities;
-using LabClinic.Applicattion.DATA;
+using LabClinic.Application.DATA;
 
 namespace LabClinic.API.Controllers
 {
@@ -22,7 +22,7 @@ namespace LabClinic.API.Controllers
         public async Task<IActionResult> GetAll()
             => Ok(await _service.GetAllAsync());
 
-        [HttpGet("{id:int}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> Get(Guid id)
         {
             var result = await _service.GetByIdAsync(id);
@@ -39,17 +39,18 @@ namespace LabClinic.API.Controllers
             return CreatedAtAction(nameof(Get), new { id = created.Id }, created);
         }
 
-        [HttpPut("{id:int}")]
-        public async Task<IActionResult> Update(int id, [FromBody] Cita dto)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] Cita dto)
         {
             if (id != dto.Id)
                 return BadRequest("ID no coincide");
 
-            return Ok(await _service.UpdateAsync(dto));
+            await _service.UpdateAsync(dto);
+            return NoContent();
         }
 
-        [HttpDelete("{id:int}")]
-        public async Task<IActionResult> Delete(int id)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
         {
             var deleted = await _service.DeleteAsync(id);
             if (!deleted)

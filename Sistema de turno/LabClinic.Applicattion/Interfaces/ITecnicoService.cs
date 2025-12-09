@@ -1,6 +1,6 @@
-﻿using LabClinic.Applicattion.DATA;
+﻿using LabClinic.Application.DATA;
 
-namespace LabClinic.Applicattion.Interfaces
+namespace LabClinic.Application.Interfaces
 {
     public interface ITecnicoService
     {

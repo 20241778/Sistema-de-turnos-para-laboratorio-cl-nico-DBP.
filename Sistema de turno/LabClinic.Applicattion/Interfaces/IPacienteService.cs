@@ -1,6 +1,7 @@
-﻿using LabClinic.Applicattion.DATA;
+﻿using LabClinic.Application.DATA;
 using System;
-namespace LabClinic.Applicattion.Interfaces
+
+namespace LabClinic.Application.Interfaces
 {
     public interface IPacienteService
     {

@@ -1,4 +1,4 @@
-﻿namespace LabClinic.Applicattion.DATA
+﻿namespace LabClinic.Application.DATA
 {
     public class CreateCitadata
     {
@@ -6,5 +6,6 @@
         public Guid TecnicoId { get; set; }
         public Guid PruebaId { get; set; }
         public DateTime Fecha { get; set; }
+        
     }
 }

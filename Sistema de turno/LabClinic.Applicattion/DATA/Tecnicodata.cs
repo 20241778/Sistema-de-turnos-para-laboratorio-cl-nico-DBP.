@@ -1,4 +1,4 @@
-﻿namespace LabClinic.Applicattion.DATA
+﻿namespace LabClinic.Application.DATA
 {
     public class Tecnicodata
     {

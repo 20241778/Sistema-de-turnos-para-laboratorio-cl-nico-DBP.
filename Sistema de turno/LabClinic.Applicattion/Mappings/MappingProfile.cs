@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using LabClinic.Applicattion.DATA;
+using LabClinic.Application.DATA;
 using LabClinic.Domain.Entities;
 
 namespace LabClinic.Application.Mappings

@@ -1,4 +1,4 @@
-﻿using LabClinic.Applicattion.DATA;
+﻿using LabClinic.Application.DATA;
 
 namespace LabClinic.Application.Interfaces
 {

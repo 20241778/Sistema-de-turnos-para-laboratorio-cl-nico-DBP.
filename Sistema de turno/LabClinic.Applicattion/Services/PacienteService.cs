@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using LabClinic.Applicattion.DATA;
-using LabClinic.Applicattion.Interfaces;
+using LabClinic.Application.DATA;
+using LabClinic.Application.Interfaces;
 using LabClinic.Infrastructure.UnitOfWork;
 using LabClinic.Domain.Entities;
 

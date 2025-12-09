@@ -2,7 +2,6 @@
 using LabClinic.Application.Interfaces;
 using LabClinic.Application.Mappings;
 using LabClinic.Application.Services;
-using LabClinic.Applicattion.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace LabClinic.Application.DependencyInjection

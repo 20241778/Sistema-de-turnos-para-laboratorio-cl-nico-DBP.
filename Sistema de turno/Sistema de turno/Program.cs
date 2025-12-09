@@ -1,7 +1,5 @@
 using LabClinic.Infrastructure.Extensions;
-using LabClinic.Application.Services;
-using LabClinic.Applicattion.Interfaces;
-using LabClinic.Application.Interfaces;
+using LabClinic.Application.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,19 +12,13 @@ builder.Services.AddSwaggerGen();
 
 // Configurar cadena de conexión (puedes moverla a appsettings.json)
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
-    ?? "Server=(localdb)\\mssqllocaldb;Database=LabClinicDB;Trusted_Connection=true;MultipleActiveResultSets=true";
+    ?? "Server=(localdb)\\mssqllocaldb;Database=SistemaTurnos;Trusted_Connection=true;MultipleActiveResultSets=true";
 
 // Agregar Infrastructure (DbContext, Repositories, UnitOfWork)
 builder.Services.AddLabClinicInfrastructure(connectionString);
 
-// Agregar AutoMapper
-builder.Services.AddAutoMapper(typeof(LabClinic.Application.Mappings.MappingProfile));
-
-// Registrar servicios de aplicación
-builder.Services.AddScoped<IPacienteService, PacienteService>();
-builder.Services.AddScoped<ITecnicoService, TecnicoService>();
-builder.Services.AddScoped<IPruebaService, PruebaService>();
-builder.Services.AddScoped<ICitaService, CitaService>();
+// Registrar servicios de aplicación y AutoMapper desde el proyecto Application
+builder.Services.AddLabClinicApplication();
 
 var app = builder.Build();
 
@@ -41,6 +33,12 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+// Attribute routing
 app.MapControllers();
+
+// Conventional fallback route (optional)
+app.MapControllerRoute(
+    name: "default",
+    pattern: "api/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

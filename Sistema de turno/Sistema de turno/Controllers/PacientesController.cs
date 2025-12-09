@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using LabClinic.Applicattion.Interfaces;
-using LabClinic.Applicattion.DATA;
+using LabClinic.Application.Interfaces;
+using LabClinic.Application.DATA;
 
 namespace Sistema_de_turno.Controllers
 {

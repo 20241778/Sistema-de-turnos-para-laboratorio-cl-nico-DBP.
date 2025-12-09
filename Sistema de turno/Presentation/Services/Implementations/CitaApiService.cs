@@ -23,10 +23,9 @@ namespace Presentation.Services.Implementations
             return res ?? Array.Empty<Citadata>();
         }
 
-        public async Task<IEnumerable<Citadata?>> GetByIdAsync(Guid id)
+        public async Task<Citadata?> GetByIdAsync(Guid id)
         {
-            var res = await _http.GetFromJsonAsync<IEnumerable<Citadata>>($"api/citas/{id}");
-            return res ?? Array.Empty<Citadata>();
+            return await _http.GetFromJsonAsync<Citadata>($"api/citas/{id}");
         }
 
         public async Task<IEnumerable<Citadata>> GetByPacienteAsync(Guid pacienteId)
@@ -45,11 +44,6 @@ namespace Presentation.Services.Implementations
         {
             var result = await _http.GetFromJsonAsync<bool?>($"api/citas/hasconflict/{tecnicoId}?fecha={fecha:o}");
             return result ?? false;
-        }
-
-        Task<Citadata?> ICitaService.GetByIdAsync(Guid id)
-        {
-            throw new NotImplementedException();
         }
     }
 }
