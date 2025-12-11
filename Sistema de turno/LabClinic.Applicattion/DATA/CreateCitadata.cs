@@ -6,6 +6,6 @@
         public Guid TecnicoId { get; set; }
         public Guid PruebaId { get; set; }
         public DateTime Fecha { get; set; }
-        
+        public string Estado { get; set; } = default!;
     }
 }

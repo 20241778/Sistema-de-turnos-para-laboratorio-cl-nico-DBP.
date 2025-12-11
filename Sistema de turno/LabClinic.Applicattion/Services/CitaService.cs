@@ -73,8 +73,8 @@ namespace LabClinic.Application.Services
             var idProp = typeof(LabClinic.Domain.Core.BaseEntity).GetProperty("Id", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
             idProp!.SetValue(updated, e.Id);
             // preservar estado si era completada/cancelada
-            if (e.Estado == EstadoCita.Completada) updated.Completar();
-            if (e.Estado == EstadoCita.Cancelada) updated.Cancelar();
+            if (e.Estado == "Completada") updated.Completar();
+            if (e.Estado == "Cancelada") updated.Cancelar();
 
             _uow.Citas.Update(updated);
             await _uow.CommitAsync();

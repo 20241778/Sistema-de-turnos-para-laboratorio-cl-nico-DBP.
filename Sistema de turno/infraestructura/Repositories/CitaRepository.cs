@@ -31,7 +31,7 @@ namespace LabClinic.Infrastructure.Repositories
         public async Task<bool> HasConflictingAppointmentAsync(Guid tecnicoId, DateTime fecha)
         {
             // Conflicto simple: existe otra cita para el mismo técnico en la misma fecha y estado programada
-            return await _dbSet.AnyAsync(c => c.TecnicoId == tecnicoId && c.Fecha == fecha && c.Estado == EstadoCita.Programada);
+            return await _dbSet.AnyAsync(c => c.TecnicoId == tecnicoId && c.Fecha == fecha && c.Estado == "Programada");
         }
     }
 }

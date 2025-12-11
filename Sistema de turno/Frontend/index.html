@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Turnos - LabClinic</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏥 Sistema de Turnos - LabClinic</h1>
+            <p>Gestión integral de pacientes, citas, pruebas y técnicos</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showSection('pacientes')">👤 Pacientes</button>
+            <button class="tab" onclick="showSection('tecnicos')">👨‍⚕️ Técnicos</button>
+            <button class="tab" onclick="showSection('pruebas')">🧪 Pruebas</button>
+            <button class="tab" onclick="showSection('citas')">📅 Citas</button>
+        </div>
+
+        <div class="content">
+            <!-- SECCIÓN PACIENTES -->
+            <div id="pacientes" class="section active">
+                <div class="card">
+                    <h3>Gestión de Pacientes</h3>
+                    <div id="pacienteAlert"></div>
+                    
+                    <form id="pacienteForm">
+                        <input type="hidden" id="pacienteId">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nombre *</label>
+                                <input type="text" id="pacienteNombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Apellido *</label>
+                                <input type="text" id="pacienteApellido" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Teléfono *</label>
+                                <input type="tel" id="pacienteTelefono" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Correo *</label>
+                                <input type="email" id="pacienteCorreo" required>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary">💾 Guardar Paciente</button>
+                            <button type="button" class="btn btn-secondary" onclick="clearPacienteForm()">🔄 Limpiar</button>
+                        </div>
+                    </form>
+
+                    <!-- 🔥 TARJETA CÓDIGO DEL PACIENTE -->
+                    <div id="pacienteCodigoCard" class="codigo-card" style="display:none;">
+                        <h4>🆔 Código del Paciente Generado</h4>
+                        <p id="pacienteCodigoTexto"></p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Lista de Pacientes</h3>
+                    <div id="pacientesTable"></div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN TÉCNICOS -->
+            <div id="tecnicos" class="section">
+                <div class="card">
+                    <h3>Gestión de Técnicos</h3>
+                    <div id="tecnicoAlert"></div>
+                    
+                    <form id="tecnicoForm">
+                        <input type="hidden" id="tecnicoId">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nombre *</label>
+                                <input type="text" id="tecnicoNombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Especialidad *</label>
+                                <input type="text" id="tecnicoEspecialidad" required>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary">💾 Guardar Técnico</button>
+                            <button type="button" class="btn btn-secondary" onclick="clearTecnicoForm()">🔄 Limpiar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h3>Lista de Técnicos</h3>
+                    <div id="tecnicosTable"></div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN PRUEBAS -->
+            <div id="pruebas" class="section">
+                <div class="card">
+                    <h3>Gestión de Pruebas</h3>
+                    <div id="pruebaAlert"></div>
+                    
+                    <form id="pruebaForm">
+                        <input type="hidden" id="pruebaId">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Código *</label>
+                                <input type="text" id="pruebaCodigo" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Nombre *</label>
+                                <input type="text" id="pruebaNombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Precio *</label>
+                                <input type="number" step="0.01" id="pruebaPrecio" required>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary">💾 Guardar Prueba</button>
+                            <button type="button" class="btn btn-secondary" onclick="clearPruebaForm()">🔄 Limpiar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h3>Lista de Pruebas</h3>
+                    <div id="pruebasTable"></div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN CITAS -->
+            <div id="citas" class="section">
+                <div class="card">
+                    <h3>Gestión de Citas</h3>
+                    <div id="citaAlert"></div>
+                    
+                    <form id="citaForm">
+                        <input type="hidden" id="citaId">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Paciente *</label>
+                                <select id="citaPaciente" required>
+                                    <option value="">Seleccione un paciente</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Técnico *</label>
+                                <select id="citaTecnico" required>
+                                    <option value="">Seleccione un técnico</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Prueba *</label>
+                                <select id="citaPrueba" required>
+                                    <option value="">Seleccione una prueba</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Fecha y Hora *</label>
+                                <input type="datetime-local" id="citaFecha" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Estado</label>
+                                <select id="citaEstado">
+                                    <option value="Pendiente">Pendiente</option>
+                                    <option value="Confirmada">Confirmada</option>
+                                    <option value="Completada">Completada</option>
+                                    <option value="Cancelada">Cancelada</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary">💾 Guardar Cita</button>
+                            <button type="button" class="btn btn-secondary" onclick="clearCitaForm()">🔄 Limpiar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h3>Lista de Citas</h3>
+                    <div id="citasTable"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
